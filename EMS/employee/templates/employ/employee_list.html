@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block title %}EMPLOYEE LIST{% endblock %}
+{% load static %}
+
+{% block javascript %}
+ <script src="{% static 'employ/js/employs.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+  <h1 class="page-header">EMPLOYEES</h1>
+
+  <ul class="nav nav-pills" style="margin-bottom: 10px;">
+				<li role="presentation" class="btn btn-primary js-create-employee" data-url="{% url 'employee_create' %}">ADD EMPLOYEE</a></li>
+                
+            </ul>
+			
+ <table class="table" id="book-table">
+  <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Job title</th>
+        <th>Date started</th>
+        <th>Job description</th>
+		<th>Photo</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% include 'employ/includes/employee_list.html' %}
+    </tbody>
+  </table>
+
+  <div class="modal fade" id="modal-employee">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+      </div>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% for employee in employee %}
+  <tr>
+    <td>{{ employee.id }}</td>
+    <td>{{ employee.name }}</td>
+    <td>{{ employee.surname }}</td>
+    <td>{{ employee.job_title }}</td>
+    <td>{{ employee.date_started}}</td>
+    <td>{{ employee.job_description }}</td>
+	<td>{{ employee.photo }}</td>
+    <td style="width: 150px">
+      <button type="button"
+              class="btn btn-warning btn-sm js-update-employee"
+              data-url="{% url 'employee_update' employee.id %}">
+        <span class="glyphicon glyphicon-pencil"></span> Edit
+      </button>
+      <button type="button"
+              class="btn btn-danger btn-sm js-delete-employee"
+              data-url="{% url 'employee_delete' employee.id %}">
+        <span class="glyphicon glyphicon-trash"></span> Delete
+      </button>
+    </td>
+  </tr>
+{% empty %}
+  <tr>
+    <td colspan="8" class="text-center bg-warning">No Employee</td>
+  </tr>
+{% endfor %}
