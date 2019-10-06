@@ -6,7 +6,13 @@
     <td>{{ employee.job_title }}</td>
     <td>{{ employee.date_started}}</td>
     <td>{{ employee.job_description }}</td>
-	<td>{{ employee.photo }}</td>
+	 <td>
+            {% if employee.photo %}
+              <img src="{{ employee.photo.url }}" style="width:100px;">
+            {% else %}
+              <span class="text-muted">No cover</span>
+            {% endif %}
+          </td>
     <td style="width: 150px">
       <button type="button"
               class="btn btn-warning btn-sm js-update-employee"
